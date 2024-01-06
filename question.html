@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question and Answers</title>
+</head>
+<body>
+    <h1>Question</h1>
+    {% if question %}
+        <h2>{{ question['title'] }}</h2>
+        <p>{{ question['message'] }}</p>
+    {% endif %}
+
+    <form action="/question/{{ question_id }}/delete" method="POST">
+    <button type="submit">Delete Question</button>
+    </form>
+
+    <h2>Answers</h2>
+    <ul>
+        {% for answer in answers %}
+            <div>
+            <p>{{ answer['message'] }}</p>
+            <form action="{{ url_for('delete_answer', answer_id=answer['id']) }}" method="post">
+                <input type="submit" value="Delete Answer">
+            </form>
+            </div>
+        {% endfor %}
+    </ul>
+
+    <p><a href='{{ url_for("add_answer", question_id=question_id) }}'>Add Your Answer</a></p>
+    <p><a href='{{ url_for("edit_question", question_id=question_id) }}'>Edit Question</a></p>
+    <p><a href="/list">Back to Questions List</a></p>
+    <p><a href="/">Main Page</a></p>
+</body>
+</html>
