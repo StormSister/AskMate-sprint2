@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Question</title>
+</head>
+<body>
+    <h1>Add a Question</h1>
+    <form action="/add_question" method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <p><a href="/">Main Page</a></p>
+    <P><a href="/list">List of Questions</a></P>
+</body>
+</html>

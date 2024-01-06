@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for question in results %}
+        <li>
+            <h2>Title: {{ question.title }}</h2>
+            <p>Question: {{ question.message }}</p>
+            {% if question.answers %}
+            <h3>Answers:</h3>
+            <ul>
+                {% for answer in question.answers %}
+                <li>{{ answer.message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <p><a href="/list">Back to Questions List</a></p>
+    <p><a href="/">Main Page</a></p>
+</body>
+
+</html>
